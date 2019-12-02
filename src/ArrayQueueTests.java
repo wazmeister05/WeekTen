@@ -67,7 +67,7 @@ public class ArrayQueueTests
          q.enqueue("AA");
          q.enqueue("BB");
          q.enqueue("CC");
-         assertFalse(q.isEmpty());       
+         assertFalse(q.isEmpty());
          assertEquals("AA", q.dequeue());
          assertEquals(2, q.size()); 
          assertEquals("BB", q.front());
@@ -84,7 +84,7 @@ public class ArrayQueueTests
         assertEquals(3, q.size()); 
         assertEquals("BB", q.front());
     }
-    
+
     @Test (expected = FullQueueException.class)
     public void enqueue_test_fullQ() {
         q.enqueue("AA");
@@ -108,7 +108,7 @@ public class ArrayQueueTests
         q.enqueue("AA");
         q.enqueue("BB");
         q.enqueue("CC");    // add 3 [AA,BB,CC]
-        assertEquals(3, q.size()); 
+        assertEquals(3, q.size());
         q.dequeue();        // remove 1 [BB,CC]
         assertEquals(2, q.size());
         q.enqueue("DD");    // add 1   [BB,CC,DD]
@@ -121,7 +121,7 @@ public class ArrayQueueTests
         q.dequeue();        // remove 1 []
         assertTrue(q.isEmpty());
         assertEquals(0, q.size());
-        q.enqueue("EE"); 
+        q.enqueue("EE");
         q.enqueue("FF");    // add 2   [EE,FF]
         assertFalse(q.isEmpty());
         assertEquals(2, q.size());

@@ -40,7 +40,7 @@ public class ArrayQueue<E> implements QueueADT<E>
      @throws FullQueueException
    */
    public void enqueue(E element){
-      if(size() == queue.length){
+      if(size() == capacity-1){
          throw new FullQueueException("full");
       }
       queue[rear] = element;
@@ -60,10 +60,12 @@ public class ArrayQueue<E> implements QueueADT<E>
    }
 
    private int increment(int front) {
-      if(++front == queue.length){
-         front = 0;
+      if(front == rear){
+         rear = 0;
+         this.front = 0;
+         return 0;
       }
-      return front;
+      return ++front;
    }
 
    /**
@@ -77,10 +79,14 @@ public class ArrayQueue<E> implements QueueADT<E>
    }
 
    public int size(){
-      return rear;
+      int count = 0;
+      for (int i = front; i < rear; i++){
+         count++;
+      }
+      return count;
    }
 
    public boolean isEmpty(){
-      return queue[0] == null;
+      return (front - rear) == 0;
    }  
 }
