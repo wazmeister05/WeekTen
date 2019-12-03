@@ -60,7 +60,7 @@ public class ArrayQueue<E> implements QueueADT<E>
    }
 
    private int increment(int front) {
-      if(front == rear){
+      if(front == rear || front == capacity -1){
          rear = 0;
          this.front = 0;
          return 0;
